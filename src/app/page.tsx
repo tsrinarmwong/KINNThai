@@ -1,5 +1,6 @@
 import Navigation from '@/components/Navigation';
 import Carousel from '@/components/Carousel';
+import CateringGallery from '@/components/CateringGallery';
 
 export default function Home() {
   return (
@@ -42,20 +43,30 @@ export default function Home() {
         </section>
 
         {/* Brand Message Section */}
-        <section className="py-20 bg-gray-50">
-          <div className="container mx-auto px-4 text-center">
+        <section className="relative py-20">
+          {/* Background Image */}
+          <div 
+            className="absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: "url('/assets/landing/backgrounds/vibe04.webp')" }}
+          ></div>
+          
+          {/* Dark Overlay */}
+          <div className="absolute inset-0 bg-gray-900/70"></div>
+
+          {/* Content */}
+          <div className="relative container mx-auto px-4 text-center">
             <div className="max-w-3xl mx-auto">
               <h2 className="text-4xl font-bold mb-8 flex flex-col space-y-2">
-                <span className="text-red-600">Cozy.</span>
-                <span className="text-red-600">Authentic.</span>
-                <span className="text-red-600">Freshly made.</span>
+                <span className="text-red-500">Cozy.</span>
+                <span className="text-red-500">Authentic.</span>
+                <span className="text-red-500">Freshly made.</span>
               </h2>
-              <p className="text-xl text-gray-600 mb-8">
+              <p className="text-xl text-white mb-8">
                 Experience the warmth of Thai hospitality in every dish we serve.
                 Our restaurant is more than just a place to eat – it&apos;s where
                 memories are made and traditions are shared.
               </p>
-              <div className="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-8 text-gray-500">
+              <div className="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-8 text-gray-100">
                 <span>Family Recipes</span>
                 <span className="hidden md:inline">•</span>
                 <span>Fresh Ingredients</span>
@@ -66,6 +77,39 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Catering Section */}
+        <section className="relative py-20">
+          {/* Background Image with Overlay */}
+          <div className="absolute inset-0 bg-gray-900 opacity-50"></div>
+          <picture className="absolute inset-0">
+            <source srcSet="/assets/catering/catering-bg.webp" type="image/webp" />
+            <div 
+              className="absolute inset-0 bg-cover bg-center"
+              style={{ backgroundImage: "url('/assets/catering/catering-bg.jpg')" }}
+            ></div>
+          </picture>
+
+          {/* Content */}
+          <div className="relative container mx-auto px-4">
+            <div className="max-w-3xl mx-auto text-center text-white">
+              <h2 className="text-4xl font-bold mb-6">Catering Services</h2>
+              <p className="text-xl mb-8">
+                Let us bring the authentic taste of Thailand to your special events.
+                From corporate gatherings to family celebrations, we create memorable
+                dining experiences with our catering services.
+              </p>
+              <a
+                href="/catering"
+                className="inline-block bg-white text-red-600 px-8 py-3 rounded-md font-medium hover:bg-gray-100 transition-colors"
+              >
+                Learn More About Catering
+              </a>
+            </div>
+          </div>
+        </section>
+
+        {/* Catering Gallery */}
+        <CateringGallery />
 
         {/* Main Content */}
         <section className="py-16">
@@ -160,48 +204,6 @@ export default function Home() {
                   </a>
                 </div>
               </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Catering Section */}
-        <section className="relative py-20">
-          {/* Background Image with Overlay */}
-          <div className="absolute inset-0 bg-gray-900 opacity-50"></div>
-          <div 
-            className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: "url('/catering-bg.jpg')" }}
-          ></div>
-
-          {/* Content */}
-          <div className="relative container mx-auto px-4">
-            <div className="max-w-3xl mx-auto text-center text-white">
-              <h2 className="text-4xl font-bold mb-6">Catering Services</h2>
-              <p className="text-xl mb-8">
-                Let us bring the authentic taste of Thailand to your special events.
-                From corporate gatherings to family celebrations, we create memorable
-                dining experiences with our catering services.
-              </p>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-                <div>
-                  <h3 className="text-xl font-semibold mb-2">Corporate Events</h3>
-                  <p className="text-gray-200">Perfect for business meetings and company celebrations</p>
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold mb-2">Private Parties</h3>
-                  <p className="text-gray-200">Make your special occasions even more memorable</p>
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold mb-2">Custom Menus</h3>
-                  <p className="text-gray-200">Tailored to your preferences and dietary requirements</p>
-                </div>
-              </div>
-              <a
-                href="/catering"
-                className="inline-block bg-white text-red-600 px-8 py-3 rounded-md font-medium hover:bg-gray-100 transition-colors"
-              >
-                Learn More About Catering
-              </a>
             </div>
           </div>
         </section>
