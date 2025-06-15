@@ -12,12 +12,12 @@ export default function Carousel() {
   const [isPaused, setIsPaused] = useState(false);
   const carouselRef = useRef<HTMLDivElement>(null);
   const slides: Slide[] = [
-    { type: 'image', src: '/assets/landing/carousel/IG_0001_GRAND_OPENING.jpg', alt: 'Grand Opening', bg: 'bg-red-600' },
-    { type: 'image', src: '/assets/landing/carousel/Entree_Menu.png', alt: 'Entree Menu', bg: 'bg-red-200' },
-    { type: 'image', src: '/assets/landing/carousel/Lunch_Menu_8-5x11_01.jpg', alt: 'Lunch Menu', bg: 'bg-red-400' },
-    { type: 'image', src: '/assets/landing/carousel/Rice_Menu.png', alt: 'Rice Menu', bg: 'bg-red-100' },
-    { type: 'image', src: '/assets/landing/carousel/Curries_Menu.png', alt: 'Curries Menu', bg: 'bg-red-300' },
-    { type: 'image', src: '/assets/landing/carousel/Dinner_Menu_8-5x11_02.jpg', alt: 'Dinner Menu', bg: 'bg-red-500' },
+    { type: 'image', src: '/assets/landing/carousel/IG_0001_GRAND_OPENING.webp', alt: 'Grand Opening', bg: 'bg-red-600' },
+    { type: 'image', src: '/assets/landing/carousel/Entree_Menu.webp', alt: 'Entree Menu', bg: 'bg-red-200' },
+    { type: 'image', src: '/assets/landing/carousel/Lunch_Menu_8-5x11_01.webp', alt: 'Lunch Menu', bg: 'bg-red-400' },
+    { type: 'image', src: '/assets/landing/carousel/Rice_Menu.webp', alt: 'Rice Menu', bg: 'bg-red-100' },
+    { type: 'image', src: '/assets/landing/carousel/Curries_Menu.webp', alt: 'Curries Menu', bg: 'bg-red-300' },
+    { type: 'image', src: '/assets/landing/carousel/Dinner_Menu_8-5x11_02.webp', alt: 'Dinner Menu', bg: 'bg-red-500' },
   ];
 
   useEffect(() => {

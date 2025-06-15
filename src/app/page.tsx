@@ -85,7 +85,7 @@ export default function Home() {
             <source srcSet="/assets/catering/catering-bg.webp" type="image/webp" />
             <div 
               className="absolute inset-0 bg-cover bg-center"
-              style={{ backgroundImage: "url('/assets/catering/catering-bg.jpg')" }}
+              style={{ backgroundImage: "url('/assets/catering/catering-bg.webp')" }}
             ></div>
           </picture>
 

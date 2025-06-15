@@ -3,28 +3,28 @@ import Image from 'next/image';
 const cateringImages = [
   {
     src: '/assets/catering/food1.webp',
-    fallbackSrc: '/assets/catering/food1.jpg',
+    fallbackSrc: '/assets/catering/food1.webp',
     alt: 'Signature Thai Pad See Ew',
     title: 'Signature Pad See Ew',
     description: 'Rich and aromatic Thai curries, perfect for any gathering'
   },
   {
     src: '/assets/catering/food2.webp',
-    fallbackSrc: '/assets/catering/food2.jpg',
+    fallbackSrc: '/assets/catering/food2.webp',
     alt: 'Fried Rice with Shrimp',
     title: 'Fried Rice with Shrimp',
     description: 'Light and refreshing starters to begin your feast'
   },
   {
     src: '/assets/catering/food3.webp',
-    fallbackSrc: '/assets/catering/food3.jpg',
+    fallbackSrc: '/assets/catering/food3.webp',
     alt: 'Thai-Iced Tea',
     title: 'Chilled Thai Iced Tea',
     description: 'Authentic pad thai and other noodle favorites'
   },
   {
     src: '/assets/catering/food4.webp',
-    fallbackSrc: '/assets/catering/food4.jpg',
+    fallbackSrc: '/assets/catering/food4.webp',
     alt: 'Thai Desserts',
     title: 'Sweet Endings',
     description: 'Traditional Thai desserts to complete your meal'
