@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['var(--font-krub)'],
+        // Removed custom sans fontFamily to use global CSS
       },
     },
   },

@@ -4,7 +4,7 @@ import "./globals.css";
 
 const krub = Krub({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-krub",
 });
 
@@ -20,9 +20,9 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={`${krub.variable} font-sans`}>
-        <main className="min-h-screen">
+    <html lang="en" className={krub.variable}>
+      <body className="min-h-screen font-sans">
+        <main>
           {children}
         </main>
       </body>
