@@ -1,0 +1,16 @@
+{
+  "name": "KINN THAI Restaurant",
+  "short_name": "KINN THAI",
+  "description": "Authentic Thai cuisine in a warm and welcoming atmosphere.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#b91c1c",
+  "icons": [
+    {
+      "src": "/assets/landing/icons/manifest.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ]
+} 
