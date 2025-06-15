@@ -52,7 +52,7 @@ export default function Home() {
               </h2>
               <p className="text-xl text-gray-600 mb-8">
                 Experience the warmth of Thai hospitality in every dish we serve.
-                Our restaurant is more than just a place to eat – it's where
+                Our restaurant is more than just a place to eat – it&apos;s where
                 memories are made and traditions are shared.
               </p>
               <div className="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-8 text-gray-500">
