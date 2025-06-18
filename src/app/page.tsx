@@ -79,9 +79,9 @@ export default function Home() {
         </section>
 
         {/* Catering Section */}
-        <section className="relative py-20 bg-gray-100 dark:bg-neutral-900">
+        <section className="relative py-20 bg-gray-100 dark:bg-neutral-700">
           {/* Background Image with Overlay */}
-          <div className="absolute inset-0 bg-gray-900/70 dark:bg-neutral-900/90"></div>
+          <div className="absolute inset-0 bg-gray-900/70 dark:bg-neutral-700/90"></div>
           <picture className="absolute inset-0">
             <source srcSet="/assets/catering/catering-bg.webp" type="image/webp" />
             <div 
@@ -113,7 +113,7 @@ export default function Home() {
         <CateringGallery />
 
         {/* Main Content */}
-        <section className="py-16 bg-white dark:bg-neutral-900">
+        <section className="py-16 bg-white dark:bg-neutral-700">
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {/* Left Column */}
@@ -126,44 +126,51 @@ export default function Home() {
                   Our chefs bring traditional recipes to life using the freshest ingredients.
                 </p>
                 <a
-                  href="/about"
+                  href="https://www.instagram.com/kinnthai.purdue/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-red-600 font-medium hover:underline"
                 >
                   Learn more about us →
                 </a>
               </div>
-
-              {/* Right Column */}
-              <div>
-                <h2 className="text-3xl font-bold mb-6 text-gray-900 dark:text-white">Visit Us</h2>
-                <div className="space-y-4">
-                  <p className="text-gray-700 dark:text-gray-200">
-                    <strong>Address:</strong><br />
-                    📍Kinn Thai Eatery | 100 Foundry Drive Ste 17, West Lafayette, IN 47906
-                  </p>
-                  <p className="text-gray-700 dark:text-gray-200">
-                    <strong>Hours:</strong><br />
-                    ⏰ 12PM-10PM
-                  </p>
-                  <p className="text-gray-700 dark:text-gray-200">
-                    <strong>Phone:</strong><br />
-                    (123) 456-7890
-                  </p>
+              {/* Facebook Page Feed in right column */}
+              <div className="flex justify-center md:block">
+                <div className="w-full max-w-[340px] h-[500px] bg-gray-200 dark:bg-neutral-800 rounded-lg overflow-hidden flex items-center justify-center mx-auto">
+                  <iframe
+                    src="https://www.facebook.com/plugins/page.php?href=https://www.facebook.com/profile.php?id=61572354187457&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"
+                    width="340"
+                    height="500"
+                    style={{ border: "none", overflow: "hidden" }}
+                    scrolling="no"
+                    frameBorder="0"
+                    allowFullScreen
+                    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                    title="Facebook Page Feed"
+                  ></iframe>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
+
         {/* Location Section */}
-        <section className="py-16 bg-gray-100 dark:bg-neutral-900">
+        <section className="py-16 bg-gray-100 dark:bg-neutral-800">
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-              {/* Map Placeholder */}
-              <div className="h-[400px] bg-gray-200 dark:bg-neutral-800 rounded-lg relative">
-                <div className="absolute inset-0 flex items-center justify-center text-gray-500 dark:text-gray-300">
-                  Google Maps Integration
-                </div>
+              {/* Map */}
+              <div className="h-[400px] bg-gray-200 dark:bg-neutral-800 rounded-lg overflow-hidden">
+                <iframe
+                  src="https://www.google.com/maps?q=100+Foundry+Drive+Ste+17,+West+Lafayette,+IN+47906&output=embed"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Kinn Thai Eatery Location"
+                ></iframe>
               </div>
 
               {/* Location Info */}
@@ -191,7 +198,7 @@ export default function Home() {
                     </p>
                   </div>
                   <a
-                    href="https://maps.google.com"
+                    href="https://maps.app.goo.gl/oFNfiEtA2NnCzbmb7"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-block bg-red-600 text-white px-6 py-3 rounded-md hover:bg-red-700 transition-colors"
@@ -203,6 +210,7 @@ export default function Home() {
             </div>
           </div>
         </section>
+
       </main>
     </>
   );

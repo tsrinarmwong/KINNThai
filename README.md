@@ -32,9 +32,9 @@ A modern, mobile-first website for KINN THAI restaurant, built with Next.js, Typ
    ```
 
 3. Start the development server:
-   ```bash
-   npm run dev
-   ```
+```bash
+npm run dev
+```
 
 4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
