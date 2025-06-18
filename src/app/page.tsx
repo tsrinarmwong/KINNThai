@@ -100,10 +100,10 @@ export default function Home() {
                 dining experiences with our catering services.
               </p>
               <a
-                href="tel:1234567890"
+                href="mailto:kinnthai.group@gmail.com"
                 className="inline-block bg-white text-red-600 px-8 py-3 rounded-md font-medium hover:bg-gray-100 transition-colors drop-shadow"
               >
-                Call to order catering
+                Email to order catering
               </a>
             </div>
           </div>
@@ -193,8 +193,8 @@ export default function Home() {
                   <div>
                     <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Contact</h3>
                     <p className="text-gray-700 dark:text-gray-200">
-                      Phone: (123) 456-7890<br />
-                      Email: info@kinthai.com
+                      {/* Phone: (123) 456-7890<br /> */}
+                      Email: kinnthai.group@gmail.com
                     </p>
                   </div>
                   <a
