@@ -15,8 +15,12 @@ export default function Carousel() {
     { type: 'image', src: '/assets/landing/carousel/IG_0001_GRAND_OPENING.webp', alt: 'Grand Opening', bg: 'bg-red-600' },
     { type: 'image', src: '/assets/landing/carousel/Entree_Menu.webp', alt: 'Entree Menu', bg: 'bg-red-200' },
     { type: 'image', src: '/assets/landing/carousel/Lunch_Menu_8-5x11_01.webp', alt: 'Lunch Menu', bg: 'bg-red-400' },
+    { type: 'image', src: '/assets/landing/carousel/weRopen.webp', alt: 'weRopen', bg: 'bg-red-700' },
     { type: 'image', src: '/assets/landing/carousel/Rice_Menu.webp', alt: 'Rice Menu', bg: 'bg-red-100' },
     { type: 'image', src: '/assets/landing/carousel/Curries_Menu.webp', alt: 'Curries Menu', bg: 'bg-red-300' },
+    { type: 'image', src: '/assets/landing/backgrounds/vibe_tables_01.webp', alt: 'Vibe Tables', bg: 'bg-red-100' },
+    { type: 'image', src: '/assets/landing/backgrounds/vibe_tables_02.webp', alt: 'Vibe Tables', bg: 'bg-red-200' },
+    { type: 'image', src: '/assets/landing/backgrounds/vibe_counter_01.webp', alt: 'Vibe Counter', bg: 'bg-red-300' },
     { type: 'image', src: '/assets/landing/carousel/Dinner_Menu_8-5x11_02.webp', alt: 'Dinner Menu', bg: 'bg-red-500' },
   ];
 
