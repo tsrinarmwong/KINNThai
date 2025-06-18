@@ -1,5 +1,4 @@
 'use client';
-import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -19,11 +18,6 @@ const menuImages = [
 ];
 
 export default function MenuPage() {
-  const [current, setCurrent] = useState(0);
-
-  const next = () => setCurrent((prev) => (prev + 1) % menuImages.length);
-  const prev = () => setCurrent((prev) => (prev - 1 + menuImages.length) % menuImages.length);
-
   return (
     <>
       <main className="min-h-screen bg-amber-50 flex flex-col items-center p-0 m-0">
@@ -44,12 +38,12 @@ export default function MenuPage() {
         </div>
       </main>
       <div className="fixed bottom-4 left-0 w-full flex justify-center pointer-events-none z-50">
-        <a
+        <Link
           href="/"
           className="pointer-events-auto bg-red-600 text-white font-bold rounded-full px-8 py-3 shadow-lg text-lg transition hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-400"
         >
           Home
-        </a>
+        </Link>
       </div>
     </>
   );

@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Navigation from '@/components/Navigation';
 import { ToastService } from '@/services/toast';
 import type { MenuItem } from '@/services/toast';
+import Image from 'next/image';
 
 export default function OrderPage() {
   const [menu, setMenu] = useState<MenuItem[]>([]);
@@ -85,10 +86,11 @@ export default function OrderPage() {
             <div key={item.id} className="bg-white rounded-lg shadow-md overflow-hidden">
               {item.imageUrl && (
                 <div className="relative h-48">
-                  <img
+                  <Image
                     src={item.imageUrl}
                     alt={item.name}
-                    className="w-full h-full object-cover"
+                    fill
+                    className="object-cover"
                   />
                 </div>
               )}
