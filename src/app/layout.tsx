@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Krub } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const krub = Krub({
   subsets: ["latin"],
@@ -51,6 +52,7 @@ export default function RootLayout({
           {children}
         </main>
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
