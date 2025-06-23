@@ -29,8 +29,7 @@ export default function MenuPage() {
                 alt={img.alt}
                 width={850}
                 height={1100}
-                style={{ width: '100%', height: 'auto' }}
-                className="rounded-lg shadow-md w-full md:w-3/5"
+                className="rounded-lg shadow-md w-full md:max-w-2xl"
                 priority={idx === 0}
               />
             </div>

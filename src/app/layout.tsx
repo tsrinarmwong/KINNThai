@@ -33,6 +33,17 @@ export default function RootLayout({
         <meta name="twitter:title" content="KINN THAI Restaurant" />
         <meta name="twitter:description" content="Authentic Thai cuisine in a warm and welcoming atmosphere." />
         <meta name="twitter:image" content="/assets/landing/icons/manifest.webp" />
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-G9CG44L4YT"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-G9CG44L4YT');
+            `,
+          }}
+        />
       </head>
       <body className="min-h-screen font-sans">
         <main>
