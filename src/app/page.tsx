@@ -27,22 +27,24 @@ export default function Home() {
         </section>
 
         {/* Action Banner */}
-        {/**
         <section className="flex">
           <a
-            href="/reserve"
-            className="flex-1 bg-red-100 text-red-600 py-8 text-center hover:bg-red-200 transition-colors"
-          >
-            <h3 className="text-2xl font-bold">RESERVE TABLE</h3>
-          </a>
-          <a
-            href="/order"
+            href="https://www.doordash.com/store/kinn-thai-eatery-west-lafayette-34903695/72770630/?pickup=true"
+            target="_blank"
+            rel="noopener noreferrer"
             className="flex-1 bg-red-600 text-white py-8 text-center hover:opacity-90 transition-opacity"
           >
-            <h3 className="text-2xl font-bold">ORDER NOW</h3>
+            <h3 className="text-2xl font-bold">ORDER ON DOORDASH</h3>
+          </a>
+          <a
+            href="https://www.ubereats.com/store/kinn-thai-eatery/HXR5cnScTn6c2y8zGqEQYw?srsltid=AfmBOooYd4BQdf7BctwGYP7K4Ox_i4dq5FjVNQ8ClkybKq7lBzieCpap"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex-1 bg-black text-white py-8 text-center hover:opacity-90 transition-opacity"
+          >
+            <h3 className="text-2xl font-bold">ORDER ON UBEREATS</h3>
           </a>
         </section>
-        */}
 
         {/* Brand Message Section */}
         <section className="relative py-20">
@@ -185,9 +187,9 @@ export default function Home() {
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Hours</h3>
-                    <div className="grid grid-cols-2 gap-2 text-gray-700 dark:text-gray-200">
-                      <div>⏰</div>
-                      <div>12PM-10PM</div>
+                    <div className="text-gray-700 dark:text-gray-200 flex items-center space-x-2">
+                      <span className="text-2xl">⏰</span>
+                      <span className="font-semibold">EVERYDAY 12PM-10PM</span>
                     </div>
                   </div>
                   <div>

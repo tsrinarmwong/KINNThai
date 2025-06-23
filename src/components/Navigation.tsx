@@ -9,10 +9,20 @@ export default function Navigation() {
   const menuItems = [
     { name: 'Home', path: '/' },
     { name: 'Menu', path: '/menu' },
-    { name: 'About', path: '/about' },
-    { name: 'Contact', path: '/contact' },
-    { name: 'Order Online', path: '/order' },
   ];
+  const orderLinks = [
+    {
+      name: 'Doordash',
+      href: 'https://www.doordash.com/store/kinn-thai-eatery-west-lafayette-34903695/72770630/?pickup=true',
+      color: 'text-red-600',
+    },
+    {
+      name: 'Ubereats',
+      href: 'https://www.ubereats.com/store/kinn-thai-eatery/HXR5cnScTn6c2y8zGqEQYw?srsltid=AfmBOooYd4BQdf7BctwGYP7K4Ox_i4dq5FjVNQ8ClkybKq7lBzieCpap',
+      color: 'text-black',
+    },
+  ];
+  const [isOrderOpen, setIsOrderOpen] = useState(false);
 
   return (
     <nav className="bg-white shadow-md" role="navigation" aria-label="Main navigation">
@@ -35,6 +45,38 @@ export default function Navigation() {
                 {item.name}
               </Link>
             ))}
+            {/* Email for Catering */}
+            <a
+              href="mailto:kinnthai.group@gmail.com"
+              className="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-red-600 hover:bg-gray-50"
+            >
+              Email for Catering
+            </a>
+            {/* Order Online Dropdown */}
+            <div className="relative">
+              <button
+                onClick={() => setIsOrderOpen((open) => !open)}
+                onBlur={() => setTimeout(() => setIsOrderOpen(false), 150)}
+                className="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-red-600 hover:bg-gray-50 focus:outline-none"
+              >
+                Order Online <span aria-hidden>▼</span>
+              </button>
+              {isOrderOpen && (
+                <div className="absolute right-0 mt-2 w-40 bg-white border rounded-md shadow-lg z-20">
+                  {orderLinks.map((link) => (
+                    <a
+                      key={link.name}
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`block px-4 py-2 text-sm hover:bg-gray-100 ${link.color}`}
+                    >
+                      {link.name} <span aria-hidden>→</span>
+                    </a>
+                  ))}
+                </div>
+              )}
+            </div>
           </div>
 
           {/* Mobile menu button */}
@@ -86,6 +128,32 @@ export default function Navigation() {
               {item.name}
             </Link>
           ))}
+          {/* Email for Catering */}
+          <a
+            href="mailto:kinnthai.group@gmail.com"
+            className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-red-600 hover:bg-gray-50"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            Email for Catering
+          </a>
+          {/* Order Online submenu */}
+          <div className="mt-2">
+            <div className="px-3 py-2 text-base font-medium text-gray-700">Order Online</div>
+            <div className="pl-4">
+              {orderLinks.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`block px-3 py-2 rounded-md text-base hover:bg-gray-100 ${link.color}`}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {link.name} <span aria-hidden>→</span>
+                </a>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </nav>
