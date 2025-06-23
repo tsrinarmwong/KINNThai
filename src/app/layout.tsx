@@ -24,6 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={krub.variable}>
       <head>
+        <link rel="icon" href="/assets/landing/icons/favicon.webp" type="image/webp" sizes="32x32" />
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#b91c1c" />
         <meta property="og:title" content="KINN THAI Restaurant" />
