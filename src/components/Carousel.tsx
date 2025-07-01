@@ -12,16 +12,15 @@ export default function Carousel() {
   const [isPaused, setIsPaused] = useState(false);
   const carouselRef = useRef<HTMLDivElement>(null);
   const slides: Slide[] = [
-    { type: 'image', src: '/assets/landing/carousel/IG_0001_GRAND_OPENING.webp', alt: 'Grand Opening', bg: 'bg-red-600' },
-    { type: 'image', src: '/assets/landing/carousel/Entree_Menu.webp', alt: 'Entree Menu', bg: 'bg-red-200' },
-    { type: 'image', src: '/assets/landing/carousel/Lunch_Menu_8-5x11_01.webp', alt: 'Lunch Menu', bg: 'bg-red-400' },
-    { type: 'image', src: '/assets/landing/carousel/weRopen.webp', alt: 'weRopen', bg: 'bg-red-700' },
-    { type: 'image', src: '/assets/landing/carousel/Rice_Menu.webp', alt: 'Rice Menu', bg: 'bg-red-100' },
-    { type: 'image', src: '/assets/landing/carousel/Curries_Menu.webp', alt: 'Curries Menu', bg: 'bg-red-300' },
-    { type: 'image', src: '/assets/landing/carousel/Dinner_Menu_8-5x11_02.webp', alt: 'Dinner Menu', bg: 'bg-red-500' },
-    { type: 'image', src: '/assets/landing/backgrounds/vibe_tables_01.webp', alt: 'Vibe Tables', bg: 'bg-red-100' },
-    { type: 'image', src: '/assets/landing/backgrounds/vibe_tables_02.webp', alt: 'Vibe Tables', bg: 'bg-red-200' },
-    { type: 'image', src: '/assets/landing/backgrounds/vibe_counter_01.webp', alt: 'Vibe Counter', bg: 'bg-red-300' },
+    { type: 'image', src: '/assets/landing/carousel/Kinn_Thai_4th_of_July_Promo.webp', alt: 'Kinn Thai 4th of July Promo', bg: 'bg-red-700' },
+    { type: 'image', src: '/assets/landing/carousel/weRopen.webp', alt: 'Kinn Thai Hours', bg: 'bg-red-100' },
+    { type: 'image', src: '/assets/landing/carousel/Curry_Noodle.webp', alt: 'Curry Noodle', bg: 'bg-red-600' },
+    { type: 'image', src: '/assets/landing/carousel/Kaprow_Basil_beef.webp', alt: 'Kaprow Basil Beef', bg: 'bg-red-400' },
+    { type: 'image', src: '/assets/landing/carousel/Larb_Todd.webp', alt: 'Larb Todd', bg: 'bg-red-300' },
+    { type: 'image', src: '/assets/landing/carousel/Padthai_shrimp.webp', alt: 'Pad Thai Shrimp', bg: 'bg-red-500' },
+    { type: 'image', src: '/assets/landing/carousel/Spring_roll.webp', alt: 'Spring Roll', bg: 'bg-red-200' },
+    { type: 'image', src: '/assets/landing/carousel/Kinn_Thai_Eatery_sign.webp', alt: 'Kinn Thai Eatery Sign', bg: 'bg-red-100' },
+    { type: 'image', src: '/assets/landing/carousel/Front_With_Mascot.webp', alt: 'Front With Mascot', bg: 'bg-red-200' },
   ];
 
   useEffect(() => {
