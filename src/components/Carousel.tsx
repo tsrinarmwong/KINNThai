@@ -5,6 +5,7 @@ import Image from 'next/image';
 
 type Slide =
   | { type: 'image'; src: string; alt: string; bg?: string }
+  | { type: 'video'; src: string; alt: string; poster?: string }
   | { type: 'color'; color: string };
 
 export default function Carousel() {
@@ -13,15 +14,11 @@ export default function Carousel() {
   const carouselRef = useRef<HTMLDivElement>(null);
   const slides: Slide[] = [
     { type: 'image', src: '/assets/landing/carousel/IG_0001_GRAND_OPENING.webp', alt: 'Grand Opening', bg: 'bg-red-600' },
+    { type: 'image', src: '/assets/landing/backgrounds/vibe_tables_01.webp', alt: 'Dining Area', bg: 'bg-red-100' },
+    { type: 'image', src: '/assets/landing/backgrounds/vibe_counter_01.webp', alt: 'Kitchen Counter', bg: 'bg-red-300' },
+    { type: 'image', src: '/assets/landing/backgrounds/vibe_tables_02.webp', alt: 'Cozy Interior', bg: 'bg-red-200' },
     { type: 'image', src: '/assets/landing/carousel/Entree_Menu.webp', alt: 'Entree Menu', bg: 'bg-red-200' },
     { type: 'image', src: '/assets/landing/carousel/Lunch_Menu_8-5x11_01.webp', alt: 'Lunch Menu', bg: 'bg-red-400' },
-    { type: 'image', src: '/assets/landing/carousel/weRopen.webp', alt: 'weRopen', bg: 'bg-red-700' },
-    { type: 'image', src: '/assets/landing/carousel/Rice_Menu.webp', alt: 'Rice Menu', bg: 'bg-red-100' },
-    { type: 'image', src: '/assets/landing/carousel/Curries_Menu.webp', alt: 'Curries Menu', bg: 'bg-red-300' },
-    { type: 'image', src: '/assets/landing/carousel/Dinner_Menu_8-5x11_02.webp', alt: 'Dinner Menu', bg: 'bg-red-500' },
-    { type: 'image', src: '/assets/landing/backgrounds/vibe_tables_01.webp', alt: 'Vibe Tables', bg: 'bg-red-100' },
-    { type: 'image', src: '/assets/landing/backgrounds/vibe_tables_02.webp', alt: 'Vibe Tables', bg: 'bg-red-200' },
-    { type: 'image', src: '/assets/landing/backgrounds/vibe_counter_01.webp', alt: 'Vibe Counter', bg: 'bg-red-300' },
   ];
 
   useEffect(() => {
@@ -58,7 +55,7 @@ export default function Carousel() {
       <div className="relative h-[60vh] min-h-[400px] overflow-hidden group">
         {/* Slides */}
         <div 
-          className="flex h-full transition-transform duration-500 ease-in-out"
+          className="flex h-full transition-transform duration-700 ease-in-out"
           style={{ transform: `translateX(-${currentSlide * 100}%)` }}
         >
           {slides.map((slide, index) => (
@@ -77,6 +74,19 @@ export default function Carousel() {
                     className="rounded-lg"
                     priority={index === 0}
                   />
+                </div>
+              ) : slide.type === 'video' ? (
+                <div className="w-full h-full flex items-center justify-center bg-red-600">
+                  <video
+                    src={slide.src}
+                    poster={slide.poster}
+                    autoPlay
+                    muted
+                    loop
+                    className="w-full h-full object-cover rounded-lg"
+                  >
+                    <track kind="captions" />
+                  </video>
                 </div>
               ) : (
                 <div className={`w-full h-full ${slide.color}`}></div>

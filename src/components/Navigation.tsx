@@ -2,9 +2,11 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import ReservationModal from './ReservationModal';
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isReservationOpen, setIsReservationOpen] = useState(false);
 
   const menuItems = [
     { name: 'Home', path: '/' },
@@ -45,6 +47,13 @@ export default function Navigation() {
                 {item.name}
               </Link>
             ))}
+            {/* Reservations */}
+            <button
+              onClick={() => setIsReservationOpen(true)}
+              className="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-red-600 hover:bg-gray-50"
+            >
+              Reservations
+            </button>
             {/* Email for Catering */}
             <a
               href="mailto:kinnthai.group@gmail.com"
@@ -128,6 +137,16 @@ export default function Navigation() {
               {item.name}
             </Link>
           ))}
+          {/* Reservations */}
+          <button
+            onClick={() => {
+              setIsReservationOpen(true);
+              setIsMenuOpen(false);
+            }}
+            className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-red-600 hover:bg-gray-50 w-full text-left"
+          >
+            Reservations
+          </button>
           {/* Email for Catering */}
           <a
             href="mailto:kinnthai.group@gmail.com"
@@ -156,6 +175,10 @@ export default function Navigation() {
           </div>
         </div>
       </div>
+      <ReservationModal 
+        isOpen={isReservationOpen} 
+        onClose={() => setIsReservationOpen(false)} 
+      />
     </nav>
   );
 } 

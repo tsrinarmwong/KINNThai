@@ -1,8 +1,14 @@
+'use client';
+
+import { useState } from 'react';
 import Navigation from '@/components/Navigation';
 import Carousel from '@/components/Carousel';
 import CateringGallery from '@/components/CateringGallery';
+import ReservationModal from '@/components/ReservationModal';
 
 export default function Home() {
+  const [isReservationOpen, setIsReservationOpen] = useState(false);
+
   return (
     <>
       <Navigation />
@@ -27,22 +33,31 @@ export default function Home() {
         </section>
 
         {/* Action Banner */}
-        <section className="flex">
+        <section className="grid grid-cols-1 md:grid-cols-3">
+          <button
+            onClick={() => setIsReservationOpen(true)}
+            className="bg-green-600 text-white py-8 text-center hover:opacity-90 transition-all hover:bg-green-700 transform hover:scale-[1.02]"
+          >
+            <h3 className="text-2xl font-bold">MAKE RESERVATION</h3>
+            <p className="text-sm mt-1">Book your table</p>
+          </button>
           <a
             href="https://www.doordash.com/store/kinn-thai-eatery-west-lafayette-34903695/72770630/?pickup=true"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-1 bg-red-600 text-white py-8 text-center hover:opacity-90 transition-opacity"
+            className="bg-red-600 text-white py-8 text-center hover:opacity-90 transition-all hover:bg-red-700 transform hover:scale-[1.02]"
           >
             <h3 className="text-2xl font-bold">ORDER ON DOORDASH</h3>
+            <p className="text-sm mt-1">Delivery & Pickup</p>
           </a>
           <a
             href="https://www.ubereats.com/store/kinn-thai-eatery/HXR5cnScTn6c2y8zGqEQYw?srsltid=AfmBOooYd4BQdf7BctwGYP7K4Ox_i4dq5FjVNQ8ClkybKq7lBzieCpap"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-1 bg-black text-white py-8 text-center hover:opacity-90 transition-opacity"
+            className="bg-black text-white py-8 text-center hover:opacity-90 transition-all hover:bg-gray-800 transform hover:scale-[1.02]"
           >
             <h3 className="text-2xl font-bold">ORDER ON UBEREATS</h3>
+            <p className="text-sm mt-1">Delivery & Pickup</p>
           </a>
         </section>
 
@@ -164,7 +179,7 @@ export default function Home() {
               {/* Map */}
               <div className="h-[400px] bg-gray-200 dark:bg-neutral-800 rounded-lg overflow-hidden">
                 <iframe
-                  src="https://www.google.com/maps?q=100+Foundry+Drive+Ste+17,+West+Lafayette,+IN+47906&output=embed"
+                  src="https://www.google.com/maps?q=Kinn+Thai+Eatery,+100+Foundry+Drive+Suite+17,+West+Lafayette,+IN+47906&output=embed&z=15"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
@@ -195,12 +210,12 @@ export default function Home() {
                   <div>
                     <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Contact</h3>
                     <p className="text-gray-700 dark:text-gray-200">
-                      {/* Phone: (123) 456-7890<br /> */}
-                      Email: kinnthai.group@gmail.com
+                      📞 Phone: <a href="tel:+17654904188" className="hover:text-red-600">(765) 490-4188</a><br />
+                      📧 Email: <a href="mailto:kinnthai.group@gmail.com" className="hover:text-red-600">kinnthai.group@gmail.com</a>
                     </p>
                   </div>
                   <a
-                    href="https://maps.app.goo.gl/oFNfiEtA2NnCzbmb7"
+                    href="https://maps.app.goo.gl/zsPsbMks8qitm4Bf9"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-block bg-red-600 text-white px-6 py-3 rounded-md hover:bg-red-700 transition-colors"
@@ -214,6 +229,10 @@ export default function Home() {
         </section>
 
       </main>
+      <ReservationModal 
+        isOpen={isReservationOpen} 
+        onClose={() => setIsReservationOpen(false)} 
+      />
     </>
   );
 }
