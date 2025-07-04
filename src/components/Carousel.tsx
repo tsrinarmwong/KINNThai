@@ -12,7 +12,7 @@ export default function Carousel() {
   const [isPaused, setIsPaused] = useState(false);
   const carouselRef = useRef<HTMLDivElement>(null);
   const slides: Slide[] = [
-    { type: 'image', src: '/assets/landing/carousel/Kinn_Thai_4th_of_July_Promo.webp', alt: 'Kinn Thai 4th of July Promo', bg: 'bg-red-700' },
+    { type: 'image', src: '/assets/landing/carousel/4th_july_closed.webp', alt: 'Kinn Thai 4th of July Promo', bg: 'bg-red-700' },
     { type: 'image', src: '/assets/landing/carousel/weRopen.webp', alt: 'Kinn Thai Hours', bg: 'bg-red-100' },
     { type: 'image', src: '/assets/landing/carousel/Curry_Noodle.webp', alt: 'Curry Noodle', bg: 'bg-red-600' },
     { type: 'image', src: '/assets/landing/carousel/Kaprow_Basil_beef.webp', alt: 'Kaprow Basil Beef', bg: 'bg-red-400' },
