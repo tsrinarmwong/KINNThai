@@ -5,6 +5,7 @@ import Image from 'next/image';
 
 type Slide =
   | { type: 'image'; src: string; alt: string; bg?: string }
+  | { type: 'video'; src: string; alt: string; bg?: string }
   | { type: 'color'; color: string };
 
 export default function Carousel() {
@@ -13,13 +14,15 @@ export default function Carousel() {
   const carouselRef = useRef<HTMLDivElement>(null);
   const slides: Slide[] = [
     // { type: 'image', src: '/assets/landing/carousel/4th_july_closed.webp', alt: 'Kinn Thai 4th of July Promo', bg: 'bg-red-700' },
-    { type: 'image', src: '/assets/landing/carousel/Kinn_Thai_4th_of_July_Promo.webp', alt: 'Kinn Thai 4th of July Promo', bg: 'bg-red-700' },
-    // { type: 'image', src: '/assets/landing/carousel/weRopen.webp', alt: 'Kinn Thai Hours', bg: 'bg-red-100' },
-    { type: 'image', src: '/assets/landing/carousel/Curry_Noodle.webp', alt: 'Curry Noodle', bg: 'bg-red-600' },
-    { type: 'image', src: '/assets/landing/carousel/Kaprow_Basil_beef.webp', alt: 'Kaprow Basil Beef', bg: 'bg-red-400' },
-    { type: 'image', src: '/assets/landing/carousel/Larb_Todd.webp', alt: 'Larb Todd', bg: 'bg-red-300' },
-    { type: 'image', src: '/assets/landing/carousel/Padthai_shrimp.webp', alt: 'Pad Thai Shrimp', bg: 'bg-red-500' },
-    { type: 'image', src: '/assets/landing/carousel/Spring_roll.webp', alt: 'Spring Roll', bg: 'bg-red-200' },
+    // { type: 'image', src: '/assets/landing/carousel/Kinn_Thai_4th_of_July_Promo.webp', alt: 'Kinn Thai 4th of July Promo', bg: 'bg-red-700' },
+    { type: 'video', src: '/assets/catering/pad_thai_shrimp.MP4', alt: 'Pad Thai Shrimp Video', bg: 'bg-red-600' },
+    { type: 'video', src: '/assets/catering/red_curry.MP4', alt: 'Red Curry Video', bg: 'bg-red-600' },
+    { type: 'image', src: '/assets/landing/carousel/weRopen.webp', alt: 'Kinn Thai Hours', bg: 'bg-red-100' },
+    { type: 'image', src: '/assets/catering/Curry_Noodle.webp', alt: 'Curry Noodle', bg: 'bg-red-600' },
+    { type: 'image', src: '/assets/catering/Kaprow_Basil_beef.webp', alt: 'Kaprow Basil Beef', bg: 'bg-red-400' },
+    { type: 'image', src: '/assets/catering/Larb_Todd.webp', alt: 'Larb Todd', bg: 'bg-red-300' },
+    { type: 'image', src: '/assets/catering/Padthai_shrimp.webp', alt: 'Pad Thai Shrimp', bg: 'bg-red-500' },
+    { type: 'image', src: '/assets/catering/Spring_roll.webp', alt: 'Spring Roll', bg: 'bg-red-200' },
     { type: 'image', src: '/assets/landing/carousel/Kinn_Thai_Eatery_sign.webp', alt: 'Kinn Thai Eatery Sign', bg: 'bg-red-100' },
     { type: 'image', src: '/assets/landing/carousel/Front_With_Mascot.webp', alt: 'Front With Mascot', bg: 'bg-red-200' },
   ];
@@ -28,9 +31,21 @@ export default function Carousel() {
     if (isPaused) return;
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 5000);
+    }, 8500);
     return () => clearInterval(timer);
   }, [isPaused, slides.length]);
+
+  // Preload videos for better mobile performance
+  useEffect(() => {
+    const videoSlides = slides.filter(slide => slide.type === 'video');
+    videoSlides.forEach(slide => {
+      if (slide.type === 'video') {
+        const video = document.createElement('video');
+        video.src = slide.src;
+        video.preload = 'metadata';
+      }
+    });
+  }, [slides]);
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % slides.length);
@@ -76,6 +91,18 @@ export default function Carousel() {
                     style={{ objectFit: 'contain' }}
                     className="rounded-lg"
                     priority={index === 0}
+                  />
+                </div>
+              ) : slide.type === 'video' ? (
+                <div className={`w-full h-full flex items-center justify-center ${'bg' in slide ? slide.bg : 'bg-red-600'}`}>
+                  <video
+                    src={slide.src}
+                    className="w-full h-full object-contain rounded-lg"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    style={{ maxWidth: '100%', maxHeight: '100%' }}
                   />
                 </div>
               ) : (
