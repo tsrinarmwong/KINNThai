@@ -27,7 +27,7 @@ export default function Home() {
         </section>
 
         {/* Action Banner */}
-        <section className="flex">
+        <section className="flex flex-col md:flex-row">
           <a
             href="https://www.doordash.com/store/kinn-thai-eatery-west-lafayette-34903695/72770630/?pickup=true"
             target="_blank"
@@ -43,6 +43,14 @@ export default function Home() {
             className="flex-1 bg-black text-white py-8 text-center hover:opacity-90 transition-opacity"
           >
             <h3 className="text-2xl font-bold">ORDER ON UBEREATS</h3>
+          </a>
+          <a
+            href="https://www.grubhub.com/restaurant/kinn-thai-eatery-100-foundry-dr-west-lafayette/11831040"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex-1 bg-orange-500 text-white py-8 text-center hover:opacity-90 transition-opacity"
+          >
+            <h3 className="text-2xl font-bold">ORDER ON GRUBHUB</h3>
           </a>
         </section>
 
