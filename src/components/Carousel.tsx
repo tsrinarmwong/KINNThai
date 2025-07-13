@@ -16,7 +16,7 @@ export default function Carousel() {
     // { type: 'image', src: '/assets/landing/carousel/4th_july_closed.webp', alt: 'Kinn Thai 4th of July Promo', bg: 'bg-red-700' },
     // { type: 'image', src: '/assets/landing/carousel/Kinn_Thai_4th_of_July_Promo.webp', alt: 'Kinn Thai 4th of July Promo', bg: 'bg-red-700' },
     { type: 'video', src: '/assets/catering/pad_thai_shrimp.MP4', alt: 'Pad Thai Shrimp Video', bg: 'bg-red-600' },
-    { type: 'video', src: '/assets/catering/red_curry.MP4', alt: 'Red Curry Video', bg: 'bg-red-600' },
+    { type: 'video', src: '/assets/catering/red_curry.MP4', alt: 'Red Curry Video', bg: 'bg-red-700' },
     { type: 'image', src: '/assets/landing/carousel/weRopen.webp', alt: 'Kinn Thai Hours', bg: 'bg-red-100' },
     { type: 'image', src: '/assets/catering/Curry_Noodle.webp', alt: 'Curry Noodle', bg: 'bg-red-600' },
     { type: 'image', src: '/assets/catering/Kaprow_Basil_beef.webp', alt: 'Kaprow Basil Beef', bg: 'bg-red-400' },
