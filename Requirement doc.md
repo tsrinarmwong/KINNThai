@@ -60,7 +60,7 @@
    When a user submits a reservation with party size = 0, the system should return an error message "Party size must be at least 1"
 
  ## Invalid input format
-   When the customer input the wrong content, such as input number in name space, the system should show the error message "Invalid data format, expected First name, Last name"
+   When the customer input the wrong content, such as customer input number in name space, the system should show the error message "Invalid data format, expected First name, Last name"
 
  ## Missing required fields
    If the customer click the confirm button but they miss required fields, such as party size, the system shouldn't let the customer finish the reservation process. 
