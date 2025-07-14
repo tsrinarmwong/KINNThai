@@ -54,3 +54,17 @@
    1. Should let user easily to understand how to use the reservation page to make a reservation. Such as less than 10 steps to complete the reservation 
  
 
+ # Edge case
+
+ ## Party size error 
+   When a user submits a reservation with party size = 0, the system should return an error message "Party size must be at least 1"
+
+ ## Invalid input format
+   When the customer input the wrong content, such as input number in name space, the system should show the error message "Invalid data format, expected First name, Last name"
+
+ ## Missing required fields
+   If the customer click the confirm button but they miss required fields, such as party size, the system shouldn't let the customer finish the reservation process. 
+   The system should show the message "Miss required fields, please finish all required fields"
+
+## Network timeout
+   If customer stop at the resrvation pages more than 10 min, the system will automatically show the message "Request timed out. Please try again." and ask the customer to re-write the reservation information again
