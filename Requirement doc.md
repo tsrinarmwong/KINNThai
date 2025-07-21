@@ -1,7 +1,7 @@
 # User Stories: 
    ## Customer:
    ### Success path:
-      Come to the website -> click reservation icon -> change to the reservation page -> input customer information ( name and phone number ) -> pick a date from the calendar → select party size -> show available time slots(with customer party size) → click confirm -> system ( use 3rd party tool (ex: Toast) or implement by engineers) will send back the notification(via email or phone message. Include confirm message and a link)
+      Come to the website -> click reservation icon -> change to the reservation page -> input customer information ( name ) -> pick a date from the calendar → select party size -> show available time slots(with customer party size) → click confirm -> system ( use Toast) will send back the notification(via email or phone message. Include confirm message)
 
    ### Fail path:
       1. If slot availability changes during customer make the reservation -> show an error “Sorry, that slot just filled, please choose another.” after customer click confirm -> the information will remain so user can correct and resubmit
@@ -11,7 +11,7 @@
 
    ## Front-Desk Employee:
    ### Success path: 
-      Receive customer reservation information from the system -> auto confirmed by system and the customer gets a notification include confirm message (“Your reservation has been reviewed and is confirmed.”) and a link(can lead to the reservation pages and see the reservation information) from phone message or email -> store the reservation information in the system to help customer checkin
+      Receive customer reservation information from the system -> auto confirmed by system and the customer gets a notification include confirm message (“Your reservation has been reviewed and is confirmed.”) from phone message or email -> store the reservation information on the notebook right at the counter to help employee track who is coming and customer checkin
 
    ### Fail path:
       If reservation page have some error(ex: lost internet connection) -> show an error " Network error, please try again later.” -> employee should contact tech team to solve the problem
@@ -21,23 +21,18 @@
 
 # Functional requirements
 
-   1. Customer can use their name and phone number to make a reservation
+   1. Customer can use their name to make a reservation
 
-   2. Customer will received the notification via phone message or email, and the message will includ a confirm message and a link. The link can lead to the reservation
-      page, and user can update the information in the reservation page
+   2. Customer will received the notification via phone message or email, and the message will includ a confirm message. 
 
-   3. Customer can use the link in the notification to check the reservation information
+   3. If customer want to update their reservation information, such as change party size, change time slot, cancel the reservation, they need to give a call to the restauran
+      to ask the employee to update the reservation. Customer cannot do these update in the notification
 
-   4. Customer can cancel their reservation via the link in the notification
+   4. Same number cannot have two reservation in same section(lunch or dinner). Customer need to cancel one reservation first so can make another reservation
 
-   5. If customer want to update their reservation information, such as change party size, change time slot, they need to give a call to the restaurant to ask the employee to
-      update the reservation. Customer cannot do these update via the link in the notification
+   5. Cancel the reservation if customer don't show up in 10 min with their reservation time
 
-   6. Same number cannot have two reservation in same section(lunch or dinner). Customer need to cancel one reservation first so can make another reservation
-
-   7. Cancel the reservation if customer don't show up in 10 min with their reservation time
-
-   8. Employee can use phone number last 4 digit (ex 4063 ) to check customer reservation information when they checkin
+   6. Employee can use customer name and party size to check customer reservation information when they checkin
 
 # Non-Functional requirements
 
@@ -68,3 +63,6 @@
 
 ## Network timeout
    If customer stop at the resrvation pages more than 10 min, the system will automatically show the message "Request timed out. Please try again." and ask the customer to re-write the reservation information again
+
+## Spam / Unserious request
+   1. If the party size is more than 6 people, the customer need to give a call to make the reservation
