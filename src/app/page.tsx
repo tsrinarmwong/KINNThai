@@ -26,6 +26,46 @@ export default function Home() {
           </div>
         </section>
 
+{/* Reservation (CTA) */}
+<section className="bg-stone-50 py-12">
+  <div className="container mx-auto px-4">
+    <div className="flex justify-center">
+      <a
+        href="/reservation"
+        aria-label="Book a table at KINN THAI"
+        className="
+          inline-flex items-center gap-2
+          bg-red-600 text-white text-lg font-semibold
+          px-8 py-3 rounded-xl shadow-md
+          hover:bg-red-700 hover:shadow-lg
+          focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2
+          transition
+        "
+      >
+        {/* simple calendar icon (SVG, no extra lib needed) */}
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          aria-hidden="true"
+        >
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+          <line x1="16" y1="2" x2="16" y2="6" />
+          <line x1="8" y1="2" x2="8" y2="6" />
+          <line x1="3" y1="10" x2="21" y2="10" />
+        </svg>
+        Book a Table
+      </a>
+    </div>
+  </div>
+</section>
+
+
         {/* Action Banner */}
         <section className="flex">
           <a
