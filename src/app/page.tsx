@@ -23,6 +23,16 @@ export default function Home() {
                 <h3 className="text-3xl font-bold">FULL MENU</h3>
               </a>
             </div>
+            <div className="flex justify-center mt-2">
+              <a
+                href="https://www.order.store/store/kinn-thai-eatery/HXR5cnScTn6c2y8zGqEQYw"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-center hover:opacity-90 transition-opacity"
+              >
+                <h3 className="text-2xl font-bold">ORDER PICK UP</h3>
+              </a>
+            </div>
           </div>
         </section>
 
