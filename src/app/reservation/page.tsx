@@ -11,7 +11,8 @@ type FormState = {
   phone: string;        // phone with dashes, e.g. 123-456-7890
   partySize: number;
   date: string;         // YYYY-MM-DD
-  time: string;         // HH:mm in 24h format
+  time: string;         // HH:mm (24h)
+  occasion: string;     // free text reason
 };
 
 export default function ReservationPage() {
@@ -34,7 +35,7 @@ export default function ReservationPage() {
     for (let mins = start; mins <= end; mins += 30) {
       const h = Math.floor(mins / 60);
       const m = mins % 60;
-      const value = `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}`; // 24h value
+      const value = `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}`;
       const labelH = (h % 12) === 0 ? 12 : (h % 12);
       const ampm = h >= 12 ? 'PM' : 'AM';
       const label = `${labelH}:${String(m).padStart(2, '0')} ${ampm}`;
@@ -48,7 +49,7 @@ export default function ReservationPage() {
     [TIME_SLOTS]
   );
 
-  // Local states for raw inputs
+  // Raw input states
   const [partySizeInput, setPartySizeInput] = useState('1');
   const [phoneInput, setPhoneInput] = useState('');
 
@@ -63,6 +64,7 @@ export default function ReservationPage() {
     partySize: 1,
     date: '',
     time: '',
+    occasion: '',
   });
 
   const [status, setStatus] = useState<
@@ -87,7 +89,9 @@ export default function ReservationPage() {
   };
 
   /** Handle all inputs change */
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
 
     if (name === 'partySize') {
@@ -109,7 +113,7 @@ export default function ReservationPage() {
       return;
     }
 
-    // date or time
+    // date, time, occasion...
     setForm(prev => ({ ...prev, [name]: value }));
   };
 
@@ -129,28 +133,28 @@ export default function ReservationPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Party size check
+    // Party size
     const sizeNum = Number(partySizeInput || '0');
     if (sizeNum < 1 || sizeNum > MAX_PARTY) {
       setStatus('tooLarge');
       return;
     }
 
-    // Name check
+    // Name
     if (!NAME_REGEX.test(form.name)) {
       setStatus('nameInvalid');
       setNameError(true);
       return;
     }
 
-    // Phone check
+    // Phone
     if (!PHONE_REGEX.test(phoneInput)) {
       setStatus('phoneInvalid');
       setPhoneError(true);
       return;
     }
 
-    // Date check
+    // Date
     const chosen = new Date(form.date);
     const min = new Date(todayISO);
     const max = new Date(maxISO);
@@ -159,7 +163,7 @@ export default function ReservationPage() {
       return;
     }
 
-    // Time check
+    // Time
     if (!allowedTimes.has(form.time)) {
       setStatus('timeInvalid');
       return;
@@ -184,7 +188,7 @@ export default function ReservationPage() {
         setPhoneInput('');
         setNameError(false);
         setPhoneError(false);
-        setForm({ name: '', phone: '', partySize: 1, date: '', time: '' });
+        setForm({ name: '', phone: '', partySize: 1, date: '', time: '', occasion: '' });
       } else {
         setStatus('error');
       }
@@ -215,7 +219,7 @@ export default function ReservationPage() {
                 className={`w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 ${
                   nameError ? 'border-red-500 focus:ring-red-500' : 'focus:ring-red-400'
                 }`}
-                placeholder="Kevin"
+                placeholder="Your name"
               />
               {nameError && (
                 <p className="mt-1 text-sm text-red-600">Only letters and spaces are allowed.</p>
@@ -224,7 +228,7 @@ export default function ReservationPage() {
 
             {/* Phone */}
             <div>
-              <label className="block mb-1 font-medium">Phone Number * (123-456-7890)</label>
+              <label className="block mb-1 font-medium">Phone Number *</label>
               <input
                 type="text"
                 name="phone"
@@ -250,26 +254,27 @@ export default function ReservationPage() {
             {/* Party Size */}
             <div>
               <label className="block mb-1 font-medium">Party size * (max {MAX_PARTY})</label>
-              <input
-                type="text"
+              <p className="text-sm text-gray-500 mb-2">If more than 8 people, please give us a call.</p>
+
+              <select
                 name="partySize"
-                inputMode="numeric"
-                pattern="[0-9]*"
-                value={partySizeInput}
-                onChange={handleChange}
-                onBlur={handlePartyBlur}
+                value={form.partySize}
+                onChange={(e) =>
+                  setForm(prev => ({ ...prev, partySize: Number(e.target.value) }))
+                }
                 required
-                className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-red-400"
-                placeholder="1~8"
-              />
-              {status === 'tooLarge' && (
-                <p className="mt-1 text-sm text-red-600">Party size cannot exceed {MAX_PARTY}.</p>
-              )}
+                className="w-full border rounded-lg px-3 py-2 bg-white focus:outline-none focus:ring-2 focus:ring-red-400">
+                {Array.from({ length: MAX_PARTY }, (_, i) => i + 1).map(n => (
+                <option key={n} value={n}>{n}</option>
+                ))}
+              </select>
             </div>
+
 
             {/* Date */}
             <div>
               <label className="block mb-1 font-medium">Date *</label>
+                <p className="text-sm text-gray-500 mb-2">We only accept reservations within 7 days ({todayISO} – {maxISO}).</p>
               <input
                 type="date"
                 name="date"
@@ -310,6 +315,23 @@ export default function ReservationPage() {
               {status === 'timeInvalid' && (
                 <p className="mt-1 text-sm text-red-600">Please select a valid time slot.</p>
               )}
+            </div>
+
+            {/* Occasion */}
+            <div>
+              <label className="block mb-1 font-medium">Occasion (optional)</label>
+              <textarea
+                name="occasion"
+                value={form.occasion}
+                onChange={handleChange}
+                rows={3}
+                maxLength={200}
+                placeholder="Birthday, anniversary, business meeting..."
+                className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-red-400 resize-none"
+              />
+              <p className="mt-1 text-xs text-gray-400 text-right">
+                {form.occasion.length}/200
+              </p>
             </div>
 
             <button
